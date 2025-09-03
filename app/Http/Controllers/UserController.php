@@ -20,13 +20,15 @@ class UserController extends Controller
         $this->userRepository = $userRepository;
     }
 
-    public function index(){
+    public function index()
+    {
         return view('dashboard.admin.user.main', [
             'users' => $this->userRepository->getClient(5)
         ]);
     }
 
-    public function store(StoreUserRequest $request){
+    public function store(StoreUserRequest $request)
+    {
         $data = $request->validated();
 
         $this->userRepository->add(
@@ -43,7 +45,8 @@ class UserController extends Controller
         return redirect()->route('user.users')->with('success', __('dashboard.user.added'));
     }
 
-    public function edit(int $userId){
+    public function edit(int $userId)
+    {
         $this->authorize('isAdmin', 'role');
         if($userId == Auth::id()) abort(404);
 

@@ -95,7 +95,7 @@ class TicketController extends Controller
     {
         $ticket = $this->ticketRepository->getWithToken($request->validated()['token']);
 
-        if ($ticket->used_at) {
+        if ($ticket->used_at){
             return response()->json([
                 'success' => false,
                 'message' => __('dashboard.ticket.already_used', ['date' => $ticket->used_at])

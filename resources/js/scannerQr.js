@@ -2,7 +2,7 @@ import { Html5Qrcode } from "html5-qrcode"
 
 let isScanning = false
 
-function showResult(message, type = 'success') {
+function showResult(message, type = 'success'){
     const resultBox = document.getElementById('qr-result')
     const messageBox = document.getElementById('qr-message')
 
@@ -18,11 +18,11 @@ function showResult(message, type = 'success') {
     }, 5000)
 }
 
-function onScanFailure(error) {
+function onScanFailure(error){
     isScanning = false
 }
 
-function onScanSuccess(decodedText) {
+function onScanSuccess(decodedText){
     if (isScanning) return
     isScanning = true
 
@@ -39,7 +39,7 @@ function onScanSuccess(decodedText) {
     })
     .then(response => response.json())
     .then(data => {
-        if (data.success) {
+        if (data.success){
             showResult(window.lang.ticket_valid.replace(':id', data.ticket_id), 'success')
         } else {
             showResult(window.lang.ticket_invalid.replace(':message', data.message), 'danger')

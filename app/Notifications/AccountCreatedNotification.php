@@ -47,7 +47,8 @@ class AccountCreatedNotification extends Notification
             ->action($this->getText('notification.account.action_login'), url('/login'));
     }
 
-    private function getText(string $slug){
+    private function getText(string $slug)
+    {
         return __($slug, [], $this->language);
     }
 

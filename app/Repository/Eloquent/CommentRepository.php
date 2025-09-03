@@ -36,11 +36,11 @@ class CommentRepository implements Repository{
         $comment = $this->commentModel->findOrFail($id);
         $user = auth()->user();
 
-        if ($user->role === UserRole::ADMIN->value || $user->role === UserRole::MODERATOR->value) {
+        if ($user->role === UserRole::ADMIN->value || $user->role === UserRole::MODERATOR->value){
             return $comment->delete();
         }
 
-        if ($user->id === $comment->user_id) {
+        if ($user->id === $comment->user_id){
             return $comment->delete();
         }
 

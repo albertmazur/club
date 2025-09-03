@@ -24,7 +24,8 @@ class SubmissionRepository implements Repository{
         $submission->save();
     }
 
-    public function get(int $id): Submission{
+    public function get(int $id): Submission
+    {
 
         return $this->submissionModel->findOrFail($id);
     }
@@ -34,11 +35,13 @@ class SubmissionRepository implements Repository{
         return $this->submissionModel->paginate($limit);
     }
 
-    public function all(): Collection{
+    public function all(): Collection
+    {
         return $this->submissionModel->all();
     }
 
-    public function filterBy(?string $content, string $reason = null): Collection{
+    public function filterBy(?string $content, string $reason = null): Collection
+    {
         $query = $this->submissionModel->where('content', 'like', $content.'%');
 
         if($reason) $query = $query->where('reason', '=', $reason);
@@ -46,7 +49,8 @@ class SubmissionRepository implements Repository{
         return $query->get();
     }
 
-    public function deleteWithComment(int $id, bool $deleteComment){
+    public function deleteWithComment(int $id, bool $deleteComment)
+    {
         $submission = $this->submissionModel->get( $id);
         if($deleteComment) $submission->comment->delete();
         $submission->delete();

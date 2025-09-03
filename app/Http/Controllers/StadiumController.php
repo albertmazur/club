@@ -41,7 +41,7 @@ class StadiumController extends Controller
         $date = $request->validated();
 
         $imagePath = null;
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('image')){
             $imagePath = $request->file('image')->store('stadium', 'public');
         }
 
@@ -72,7 +72,7 @@ class StadiumController extends Controller
         $date = $request->validated();
 
         $imagePath = null;
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('image')){
             $imagePath = $request->file('image')->store('stadium', 'public');
         }
 

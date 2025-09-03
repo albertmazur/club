@@ -132,7 +132,7 @@ Route::middleware(['auth', 'verified', 'force_password_change'])->group(function
 });
 
 Auth::routes(['verify' => true]);
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function (){
     Route::get('/password/change', [PasswordChangeController::class, 'showForm'])->name('password.change.form');
     Route::post('/password/change', [PasswordChangeController::class, 'update'])->name('password.change.update');
 });

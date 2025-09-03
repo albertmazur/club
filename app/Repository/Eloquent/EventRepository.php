@@ -46,7 +46,8 @@ class EventRepository implements Repository{
         $event->save();
     }
 
-    public function get(int $id): Event{
+    public function get(int $id): Event
+    {
         return $this->eventModel->findOrFail($id);
     }
 
@@ -78,7 +79,7 @@ class EventRepository implements Repository{
         {
             $query = $query->selectRaw('events.*, (stadiums.places - COUNT(tickets.id)) AS freeSet')
                 ->join('stadiums', 'events.stadium_id', '=', 'stadiums.id')
-                ->leftJoin('tickets', function ($join) {
+                ->leftJoin('tickets', function ($join){
                     $join->on('events.id', '=', 'tickets.event_id')
                          ->where('tickets.state', '=', TicketStatus::PURCHASED->value);
                 })
@@ -89,9 +90,9 @@ class EventRepository implements Repository{
         if($value) $query = $query->where('name', 'like', $value.'%');
         
         $driver = DB::getDriverName();
-        if ($driver === 'sqlite') {
+        if ($driver === 'sqlite'){
             $expression = DB::raw("date || ' ' || time");
-        } elseif ($driver === 'pgsql') {
+        } elseif ($driver === 'pgsql'){
             $expression = DB::raw("date || ' ' || time::text");
         } else {
             $expression = DB::raw("CONCAT(date, ' ', time)");

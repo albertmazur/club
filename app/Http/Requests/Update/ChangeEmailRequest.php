@@ -22,8 +22,8 @@ class ChangeEmailRequest extends FormRequest
 
     public function withValidator($validator)
     {
-        $validator->after(function ($validator) {
-            if (!Hash::check($this->input('current_password'), auth()->user()->password)) {
+        $validator->after(function ($validator){
+            if (!Hash::check($this->input('current_password'), auth()->user()->password)){
                 $validator->errors()->add('current_password', __('settings.invalid_password'));
             }
         });

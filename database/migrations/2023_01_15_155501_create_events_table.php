@@ -12,10 +12,9 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('events', function (Blueprint $table)
-        {
+        Schema::create('events', function (Blueprint $table){
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
@@ -33,7 +32,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('events');
     }

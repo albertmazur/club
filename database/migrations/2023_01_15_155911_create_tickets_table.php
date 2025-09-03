@@ -14,10 +14,9 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('tickets', function (Blueprint $table)
-        {
+        Schema::create('tickets', function (Blueprint $table){
             $table->id();
             $table->string('qr_token')->unique()->nullable();
             $table->date('dateBuy');
@@ -36,7 +35,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('tickets');
     }

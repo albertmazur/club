@@ -33,15 +33,18 @@ class TicketRepository implements Repository{
         }
     }
 
-    public function get(int $id): Ticket{
+    public function get(int $id): Ticket
+    {
         return $this->ticketModel->findOrFail($id);
     }
 
-    public function getWithToken(string $token): Ticket{
+    public function getWithToken(string $token): Ticket
+    {
         return Ticket::where('qr_token', $token)->where('state', 'purchased')->firstOrFail();
     }
 
-    public function myTickets(?int $event, string $how = null): Collection{
+    public function myTickets(?int $event, string $how = null): Collection
+    {
         $query = $this->ticketModel->where('user_id', '=', Auth::id());
 
         if($event) $query = $query->where('event_id', '=', $event);
@@ -51,15 +54,18 @@ class TicketRepository implements Repository{
         return $query->get();
     }
 
-    public function allPaginated(int $limit): LengthAwarePaginator{
+    public function allPaginated(int $limit): LengthAwarePaginator
+    {
         return $this->ticketModel->orderBy('name')->paginate($limit);
     }
 
-    public function all(): Collection{
+    public function all(): Collection
+    {
         return $this->ticketModel->all();
     }
 
-    public function orderByData(int $limit): Collection{
+    public function orderByData(int $limit): Collection
+    {
         return $this->ticketModel
             ->where('date', '>', Carbon::today())
             ->orderBy('date')->orderBy('time')
@@ -67,7 +73,8 @@ class TicketRepository implements Repository{
             ->get();
     }
 
-    public function mostComment(int $limit): Collection{
+    public function mostComment(int $limit): Collection
+    {
         return $this->ticketModel
             ->withCount('comments')
             ->orderBy('comments_count', 'desc')
@@ -75,12 +82,12 @@ class TicketRepository implements Repository{
             ->get();
     }
 
-    public function backTicket(int $id): bool{
+    public function backTicket(int $id): bool
+    {
         $ticket = $this->ticketModel->findOrFail($id);
         $ticket->state = 'returned';
 
-        try
-        {
+        try {
             Stripe::setApiKey(config('services.stripe.secret'));
             Refund::create([
                 'payment_intent' => $ticket->stripe_payment_id,
@@ -93,8 +100,7 @@ class TicketRepository implements Repository{
             }
             else return false;
         }
-        catch (\Exception $e)
-        {
+        catch (\Exception $e){
             return false;
         }
     }

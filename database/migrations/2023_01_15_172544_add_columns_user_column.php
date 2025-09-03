@@ -13,10 +13,9 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::table('users', function (Blueprint $table)
-        {
+        Schema::table('users', function (Blueprint $table){
             $table->renameColumn('name', 'first_name');
             $table->string('last_name');
             $table->string('tel');
@@ -31,10 +30,9 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::table('users', function (Blueprint $table)
-        {
+        Schema::table('users', function (Blueprint $table){
             $table->renameColumn('first_name', 'name');
             $table->dropColumn(['last_name', 'tel', 'role', 'language', 'force_password_change']);
         });

@@ -1,6 +1,6 @@
 import './bootstrap'
 
-window.showErrorAlert = function(message) {
+window.showErrorAlert = function(message){
     let mainElement = document.querySelector('main')
 
     let alertDiv = document.createElement('div')

@@ -13,10 +13,9 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('submissions', function (Blueprint $table)
-        {
+        Schema::create('submissions', function (Blueprint $table){
             $table->id();
             $table->string('content');
             $table->enum('reason', array_column(ReasonSubmission::cases(), 'value'));
@@ -30,7 +29,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('tickets');
     }

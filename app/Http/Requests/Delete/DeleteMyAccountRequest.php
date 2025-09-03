@@ -23,11 +23,11 @@ class DeleteMyAccountRequest extends FormRequest
 
     public function withValidator($validator)
     {
-        $validator->after(function ($validator) {
-            if(!Hash::check($this->input('password'), auth()->user()->password)) {
+        $validator->after(function ($validator){
+            if(!Hash::check($this->input('password'), auth()->user()->password)){
                 $validator->errors()->add('password', __('settings.invalid_password'));
             }
-            if(auth()->user()->role == UserRole::ADMIN->value) {
+            if(auth()->user()->role == UserRole::ADMIN->value){
                 $validator->errors()->add('password', __('settings.invalid_password'));
             }
         });

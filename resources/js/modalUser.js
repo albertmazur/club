@@ -1,7 +1,7 @@
 let targetForm = null
 
 // document.querySelectorAll('.button-delete-user').forEach(button => {
-//     button.addEventListener('click', function () {
+//     button.addEventListener('click', function (){
 //         targetForm = this.closest('form')
 //     })
 // })

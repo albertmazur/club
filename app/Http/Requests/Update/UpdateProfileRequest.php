@@ -41,7 +41,7 @@ class UpdateProfileRequest extends FormRequest
 
     public function withValidator($validator)
     {
-        $validator->after(function (Validator $validator) {
+        $validator->after(function (Validator $validator){
             $editedUser = User::find($this->input('id'));
 
             if ($editedUser && $editedUser->role === UserRole::ADMIN->value && $this->input('role') !== UserRole::ADMIN->value)

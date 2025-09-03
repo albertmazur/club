@@ -15,7 +15,8 @@ class StadiumRepository implements Repository{
         $this->stadiumModel = $stadium;
     }
 
-    public function get(int $id): Stadium{
+    public function get(int $id): Stadium
+    {
         return $this->stadiumModel->findOrFail($id);
     }
 
@@ -50,7 +51,8 @@ class StadiumRepository implements Repository{
         return $this->stadiumModel->orderBy('date')->orderBy('time')->paginate($limit);
     }
 
-    public function all(): Collection{
+    public function all(): Collection
+    {
         return $this->stadiumModel->all();
     }
 

@@ -43,7 +43,7 @@
         
         const submitButton = form.querySelector("button[type='submit']")
 
-        form.addEventListener('submit', async function(event) {
+        form.addEventListener('submit', async function(event){
             event.preventDefault()
 
             submitButton.disabled = true
@@ -55,7 +55,7 @@
                 card: cardNumber,
             })
 
-            if (error) {
+            if (error){
                 showErrorAlert(error.message)
                 submitButton.disabled = false
                 submitButton.innerHTML = originalText
@@ -73,7 +73,7 @@
                 }
             }).then(response => response.json())
             .then(data => {
-                if (data.success) {
+                if (data.success){
                     window.location.href = "{{ route('ticket.payment.status') }}"
                 } else {
                     showErrorAlert(data.error)
