@@ -19,7 +19,7 @@
                         <ul class="list-unstyled">
                             <li><strong>{{ __('app.city') }}:</strong> {{ $stadium->city }}</li>
                             <li><strong>{{ __('app.address') }}:</strong> {{ $stadium->street }} {{ $stadium->numberBuilding }}</li>
-                            <li><strong>{{ __('app.capacity') }}:</strong> {{ $stadium->places }} miejsc</li>
+                            <li><strong>{{ __('app.capacity') }}:</strong> {{ $stadium->places }} {{ __('app.places') }}</li>
                         </ul>
                     </div>
                 </div>

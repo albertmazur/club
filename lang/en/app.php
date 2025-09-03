@@ -68,7 +68,7 @@ return [
     'st'=> "st.",
     'street' => "Street",
     'capacity' => "Capacity",
-    'places' => "miejsc",
+    'places' => "places",
     'free_places' => "Free places",
     'find' => "Find",
     'sort' => "Sort",
