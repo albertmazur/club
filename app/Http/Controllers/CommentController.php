@@ -9,7 +9,6 @@ use App\Repository\CommentRepository;
 use App\Http\Requests\Store\StoreCommentRequest;
 use App\Http\Requests\Delete\DeleteCommentRequest;
 use App\Http\Requests\Search\SearchCommentRequest;
-use App\Http\Requests\Update\UpdateCommentRequest;
 use App\Http\Requests\Search\SearchMyCommentRequest;
 
 class CommentController extends Controller
@@ -50,25 +49,14 @@ class CommentController extends Controller
         return back()->with('success', __('dashboard.comment.add'));
     }
 
-    public function update(UpdateCommentRequest $request)
-    {
-        //
-    }
-
     public function destroy(DeleteCommentRequest $request)
     {
         $id = $request->validated()['id'];
         
-        if($this->commentRepository->delete($id)){
-            $data = [
-                'success' => __('dashboard.comment.deleted'),
-            ];
-        }
-        else{
-            $data = [
-                'error' => __('dashboard.comment.delete_error'),
-            ];
-        }
+        $data = $this->commentRepository->delete($id) 
+            ? ['success' => __('dashboard.comment.deleted')]
+            : ['error' => __('dashboard.comment.delete_error')];
+
         return back()->with($data);
     }
 

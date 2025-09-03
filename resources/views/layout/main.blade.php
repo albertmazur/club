@@ -7,13 +7,13 @@
             <div id="carouselAutoplaying" class="carousel slide w-75 mx-auto" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ asset('images/stadium/stadium1.webp') }}" class="d-block rounded object-fit-cover  w-100" alt="{{ __('app.stadium') }}">
+                        <img src="{{ asset('images/stadium/stadium1.webp') }}" class="d-block rounded object-fit-cover  w-100" alt="{{ __('app.stadium') }} 1">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('images/stadium/stadium2.webp') }}" class="d-block rounded object-fit-cover  w-100" alt="{{ __('app.stadium') }}">
+                        <img src="{{ asset('images/stadium/stadium2.webp') }}" class="d-block rounded object-fit-cover  w-100" alt="{{ __('app.stadium') }} 2">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('images/stadium/stadium3.webp') }}" class="d-block rounded object-fit-cover  w-100" alt="{{ __('app.stadium') }}">
+                        <img src="{{ asset('images/stadium/stadium3.webp') }}" class="d-block rounded object-fit-cover  w-100" alt="{{ __('app.stadium') }} 3">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="prev">

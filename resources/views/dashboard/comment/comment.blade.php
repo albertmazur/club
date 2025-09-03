@@ -12,7 +12,9 @@
                 <select id="who" name="who" class="form-select" aria-label="{{ __('dashboard.user.select') }}">
                     <option @if($who) selected @endif value="">{{ __('app.all') }}</option>
                     @foreach($users as $user)
-                        <option @if($who == $user->id) selected @endif value="{{ $user->id }}">{{ $user->first_name }} {{ $user->last_name }}</option>
+                        <option @if($who == $user->id) selected @endif value="{{ $user->id }}">
+                            {{ $user->first_name }} {{ $user->last_name }}
+                        </option>
                     @endforeach
                 </select>
             </div>

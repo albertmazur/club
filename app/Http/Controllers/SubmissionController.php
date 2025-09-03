@@ -21,7 +21,7 @@ class SubmissionController extends Controller
         $data = $request->validated();
 
         $content = $data['content'] ?? null;
-        $reason = $data['reason'] ?? 'All';
+        $reason = $data['reason'] ?? null;
 
         return view('dashboard.submission.submission', [
             'submissions' => $this->submissionRepository->filterBy($content, $reason),

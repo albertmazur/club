@@ -38,10 +38,10 @@ class SubmissionRepository implements Repository{
         return $this->submissionModel->all();
     }
 
-    public function filterBy(?string $content, string $reason = 'All'): Collection{
+    public function filterBy(?string $content, string $reason = null): Collection{
         $query = $this->submissionModel->where('content', 'like', $content.'%');
 
-        if($reason != 'All') $query = $query->where('reason', '=', $reason);
+        if($reason) $query = $query->where('reason', '=', $reason);
 
         return $query->get();
     }

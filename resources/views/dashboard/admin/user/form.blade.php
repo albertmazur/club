@@ -45,7 +45,7 @@
         <select id="role" name="role" class="form-select">
             @foreach(\App\Enums\UserRole::cases() as $role)
                 <option value="{{ $role->value }}" {{ ($user->role ?? '') === $role->value ? 'selected' : '' }}>
-                    {{__('app.' . $role->value)  }}
+                    {{ __('app.' . $role->value) }}
                 </option>
             @endforeach
         </select>
@@ -56,7 +56,7 @@
         <select id="language" name="language" class="form-select">
             @foreach(\App\Enums\Language::cases() as $lang)
                 <option value="{{ $lang->value }}" {{ ($user->language ?? '') === $lang->value ? 'selected' : '' }}>
-                    {{ __('app.langs.'.$lang->value) }}
+                    {{ __('app.langs.' . $lang->value) }}
                 </option>
             @endforeach
         </select>

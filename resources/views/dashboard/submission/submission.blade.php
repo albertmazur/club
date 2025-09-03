@@ -10,9 +10,7 @@
             <div class="mb-3">
                 <label for="reason" class="form-label">{{ __('dashboard.choose_topic') }}</label>
                 <select name="reason" class="form-select rounded-start" aria-label="{{ __('dashboard.comment.which') }}">
-                    <option @if($reason == 'All') selected @endif value="All">
-                        {{ __('app.all') }}
-                    </option>
+                    <option @if($reason == null) selected @endif value="">{{ __('app.all') }}</option>
                     @foreach(\App\Enums\ReasonSubmission::cases() as $r)
                         <option value="{{ $r->value }}" {{ $reason === $r->value ? 'selected' : '' }}>{{ __('dashboard.comment.' . $r->value) }}</option>
                     @endforeach

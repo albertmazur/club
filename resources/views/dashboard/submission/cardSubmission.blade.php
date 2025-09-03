@@ -35,12 +35,18 @@
                 <input type="hidden" name="id" value="{{ $submission->id }}">
                 <div class="form-floating">
                     <select class="form-select" id="action" name="action" aria-label="{{ __('dashboard.submission.select_action') }}">
-                        <option value="only_submission">{{ __('dashboard.submission.delete_only_submission') }}</option>
-                        <option value="submission_and_comment">{{ __('dashboard.submission.delete_submission_and_comment') }}</option>
+                        <option value="only_submission">
+                            {{ __('dashboard.submission.delete_only_submission') }}
+                        </option>
+                        <option value="submission_and_comment">
+                            {{ __('dashboard.submission.delete_submission_and_comment') }}
+                        </option>
                     </select>
                     <label for="action">{{ __('dashboard.submission.action_label') }}</label>
                 </div>
-                <button type="submit" class="btn btn-danger px-4">{{ __('dashboard.submission.execute_action') }}</button>
+                <button type="submit" class="btn btn-danger px-4">
+                    {{ __('dashboard.submission.execute_action') }}
+                </button>
             </div>
         </form>
     </div>

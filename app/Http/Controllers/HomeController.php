@@ -30,7 +30,7 @@ class HomeController extends Controller
 
     public function changeLanguage(string $language)
     {
-        Auth::user()->setLanguage($language);
+        if(Auth::check()) Auth::user()->setLanguage($language);
         session()->put('language', $language);
 
         return back();
