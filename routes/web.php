@@ -129,6 +129,8 @@ Route::middleware(['auth', 'verified', 'force_password_change'])->group(function
         Route::post('settings/password', [UserController::class, 'changePassword'])->name('change.password');
         Route::delete('settings/account', [UserController::class, 'deleteAccount'])->name('delete.account');
     });
+
+    Route::post('/translate', [HomeController::class, 'translate'])->name('translate');
 });
 
 Auth::routes(['verify' => true]);

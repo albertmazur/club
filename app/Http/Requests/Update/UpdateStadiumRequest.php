@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\Update;
 
+use App\Enums\Language;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateStadiumRequest extends FormRequest
@@ -26,7 +28,8 @@ class UpdateStadiumRequest extends FormRequest
         return [
             'id' => ['required', 'integer'],
             'name' => ['required', 'string'],
-            'description' => ['nullable', 'string'],
+            'description' => ['array', Rule::in(array_column(Language::cases(), 'value'))],
+            'description.*' => ['nullable', 'string'],
             'city' => ['required', 'string'],
             'street' => ['required', 'string'],
             'numberBuilding' => ['required', 'string'],

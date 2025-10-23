@@ -17,7 +17,7 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table){
             $table->id();
-            $table->longText('content');
+            $table->json('content');
             $table->date('date');
             $table->time('time');
             $table->foreignIdFor(User::class);

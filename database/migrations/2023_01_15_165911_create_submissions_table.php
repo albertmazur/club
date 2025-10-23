@@ -17,7 +17,7 @@ return new class extends Migration
     {
         Schema::create('submissions', function (Blueprint $table){
             $table->id();
-            $table->string('content');
+            $table->json('content');
             $table->enum('reason', array_column(ReasonSubmission::cases(), 'value'));
             $table->foreignIdFor(Comment::class)->references('id')->on('comments')->onDelete('cascade');
             $table->timestamps();

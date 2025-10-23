@@ -4,12 +4,12 @@
             <img src="{{ Storage::url($event->image) }}" class="card-img-top object-fit-cover" alt="{{ $event->name }}" height="200px">
         @else
             <div class="card-img-top bg-secondary d-flex justify-content-center align-items-center" style="height: 200px;">
-                <span class="text-white">{{ $event->name }}</span>
+                <span class="text-white">{{ $event->getName() }}</span>
             </div>
         @endif
     </a>
     <div class="card-body d-flex flex-column">
-        <h2 class="card-title">{{ $event->name }}</h2>
+        <h2 class="card-title">{{ $event->getName() }}</h2>
         <p class="card-text">
             {{ __('app.date') }}: {{ $event->date }} {{ $event->time }}<br>
             {{ __('app.stadium') }}: {{ $event->stadium->name }}<br>

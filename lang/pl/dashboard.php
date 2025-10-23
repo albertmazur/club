@@ -5,6 +5,8 @@ return [
     'choose_topic' => "Wybierz temat",
     'sort_choice' => "Wybierz po czym sortować",
     'sort_direction' => "Kierunek sortowania",
+    'selected_language' => "Wybrany język",
+    'autotranslate_empty_from_selected' => 'Przetłumacz puste pola z wybranego języka',
     'event' => [
         'add' => "Dodaj wydarzenie",
         'edit' => "Edytuj wydarzenie",

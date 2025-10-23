@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Language;
 use App\Models\Event;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -18,8 +19,14 @@ class CommentFactory extends Factory
      */
     public function definition()
     {
+        $content = [];
+        foreach (Language::cases() as $lang)
+        {
+            $content[$lang->value] = fake($lang->value)->realText(180);
+        }
+
         return [
-            'content' => fake()->text(),
+            'content' => $content,
             'date' => fake()->date(),
             'time' => fake()->time(),
             'user_id' => User::factory(),

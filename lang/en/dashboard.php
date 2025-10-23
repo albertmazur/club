@@ -5,6 +5,8 @@ return [
     'choose_topic' => "Choose a topic",
     'sort_choice' => "Choose what to sort by",
     'sort_direction' => "Sort direction",
+    'selected_language' => "Selected language",
+    'autotranslate_empty_from_selected' => 'Autotranslate empty fields from selected language',
     'event' => [
         'add' => "Add event",
         'edit' => "Edit event",

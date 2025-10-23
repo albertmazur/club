@@ -14,12 +14,12 @@
                     </div>
                     <div class="col-md-6 {{ $loop->iteration % 2 === 0 ? 'order-md-1' : '' }}">
                         <h3 class="mt-3 mt-md-0">{{ $stadium->name }}</h3>
-                        <p>{{ $stadium->description }}</p>
+                        <p>{{ $stadium->getDescription() }}</p>
 
                         <ul class="list-unstyled">
-                            <li><strong>{{ __('app.city') }}:</strong> {{ $stadium->city }}</li>
-                            <li><strong>{{ __('app.address') }}:</strong> {{ $stadium->street }} {{ $stadium->numberBuilding }}</li>
-                            <li><strong>{{ __('app.capacity') }}:</strong> {{ $stadium->places }} {{ __('app.places') }}</li>
+                            <li><strong>{{ __('app.city') }}</strong>: {{ $stadium->city }}</li>
+                            <li><strong>{{ __('app.address') }}</strong>: {{ $stadium->street }} {{ $stadium->numberBuilding }}</li>
+                            <li><strong>{{ __('app.capacity') }}</strong>: {{ $stadium->places }} {{ __('app.places') }}</li>
                         </ul>
                     </div>
                 </div>

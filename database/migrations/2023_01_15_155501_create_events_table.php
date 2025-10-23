@@ -16,8 +16,8 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table){
             $table->id();
-            $table->string('name');
-            $table->text('description')->nullable();
+            $table->json('name');
+            $table->json('description')->nullable();
             $table->date('date');
             $table->time('time');
             $table->float('price');

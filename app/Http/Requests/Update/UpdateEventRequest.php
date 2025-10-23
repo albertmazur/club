@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\Update;
 
+use App\Enums\Language;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateEventRequest extends FormRequest
@@ -26,7 +28,8 @@ class UpdateEventRequest extends FormRequest
         return [
             'id' => ['required' , 'integer'],
             'name' => ['required', 'string'],
-            'description' => ['string'],
+            'description' => ['array', Rule::in(array_column(Language::cases(), 'value'))],
+            'description.*' => ['nullable', 'string'],
             'date' => ['required', 'date', 'after:today'],
             'time' => ['required', 'date_format:H:i'],
             'price' => ['required', 'decimal:0,2'],

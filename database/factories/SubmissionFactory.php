@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Language;
 use App\Enums\ReasonSubmission;
 use App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -18,8 +19,14 @@ class SubmissionFactory extends Factory
      */
     public function definition(): array
     {
+        $content = [];
+        foreach (Language::cases() as $lang)
+        {
+            $content[$lang->value] = fake($lang->value)->realText(180);
+        }
+
         return [
-            'content' => fake()->text(),
+            'content' => $content,
             'reason' => fake()->randomElement(ReasonSubmission::cases()),
             'comment_id' => Comment::factory()
         ];

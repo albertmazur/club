@@ -24,4 +24,6 @@
             @include('dashboard.submission.cardSubmission')
         @endforeach
     </div>
+
+    @vite('resources/js/submissionCards.js')
 @endsection

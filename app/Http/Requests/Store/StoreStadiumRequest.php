@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\Store;
 
+use App\Enums\Language;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreStadiumRequest extends FormRequest
@@ -25,7 +27,8 @@ class StoreStadiumRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
-            'description' => ['nullable', 'string'],
+            'description' => ['array', Rule::in(array_column(Language::cases(), 'value'))],
+            'description.*' => ['nullable', 'string'],
             'city' => ['required', 'string'],
             'street' => ['required', 'string'],
             'numberBuilding' => ['required', 'string'],

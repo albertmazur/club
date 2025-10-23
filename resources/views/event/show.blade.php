@@ -4,7 +4,7 @@
     @include('layout.parts.errors')
     <div class="card">
         <div class="card-header">
-            <h1 class="text-center">{{ $event->name }}</h1>
+            <h1 class="text-center">{{ $event->getName() }}</h1>
         </div>
         <div class="card-body">
             @if($event->image)
@@ -14,7 +14,7 @@
             @endif
 
             <h4 class="text-center">{{ $event->date }} {{ $event->time }}</h4>
-            <p class="text-center">{{ $event->description }}</p>
+            <p class="text-center">{{ $event->getDescription() }}</p>
             <div class="mt-2">
                 <p class="text-center">{{ __('app.stadium') }}: {{ $event->stadium->name }}</p>
                 <p class="text-center">{{ __('app.address') }}: {{ $event->stadium->city }} {{ __('app.st') }} {{ $event->stadium->street }}, {{ $event->stadium->numberBuilding }}</p>
@@ -38,8 +38,10 @@
                             @endif
                         </h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ $comment->date }} {{ $comment->time }}</h6>
-                        <p class="card-text">{{ $comment->content }}</p>
-                        <button class="reportButton btn btn-danger" data-bs-toggle="modal" data-bs-target="#registrationCommentModal" value="{{ $comment->id }}">{{ __('app.submission_comment') }}</button>
+                        <p class="card-text">{{ $comment->getContent() }}</p>
+                        <button class="reportButton btn btn-danger" data-bs-toggle="modal" data-bs-target="#registrationCommentModal" value="{{ $comment->id }}">
+                            {{ __('app.submission_comment') }}
+                        </button>
                     </div>
                 </div>
             @endforeach

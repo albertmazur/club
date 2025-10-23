@@ -23,7 +23,7 @@
                 @foreach($events as $event)
                     <tr>
                         <td>{{ $loop->iteration+(($events->currentPage()-1)*10) }}</td>
-                        <td>{{ $event->name }}</td>
+                        <td>{{ $event->getName() }}</td>
                         <td>{{ $event->date }} {{ $event->time }}</td>
                         <td>{{ $event->freePlaces() }}</td>
                         <td>{{ $event->formatted_price }}</td>

@@ -20,6 +20,7 @@ Real ASC is a web application designed to manage a sports club. It allows users 
 - Bootstrap 5 (https://getbootstrap.com)
 - MySQL (https://www.mysql.com) (or other supported databases)
 - Stripe (https://stripe.com) for payments
+- Deepl (https://www.deepl.com) for translate
 
 ## Installation & Setup
 
@@ -70,6 +71,17 @@ The application integrates with [Stripe](https://stripe.com/) to handle event pa
 STRIPE_KEY=your_stripe_public_key
 STRIPE_SECRET=your_stripe_secret_key
 ```
+
+## DeepL Integration
+The application integrates with [DeepL](https://www.deepl.com/) to handle automatic translations of content.  
+Ensure you have a valid DeepL API key configured in your `.env` file:
+
+- **DEEPL_KEY** – Your API key obtained from the [DeepL API console](https://www.deepl.com/pro-api).  
+- **DEEPL_API** – The API endpoint:  
+  - Use `https://api-free.deepl.com/v2/translate` for the free version.  
+  - Use `https://api.deepl.com/v2/translate` for the Pro version.  
+
+The key will be automatically used in the application for translating supported fields.
 
 ## Admin Credentials
 - **Email:** admin@example.com

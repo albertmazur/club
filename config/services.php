@@ -35,4 +35,9 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+
+    'deepl' => [
+        'key' => env('DEEPL_KEY'),
+        'base' => env('DEEPL_BASE', 'https://api-free.deepl.com'),
+    ]
 ];

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Language;
 use App\Models\Stadium;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,9 +18,17 @@ class EventFactory extends Factory
      */
     public function definition()
     {
+        $name = [];
+        $description = [];
+        foreach (Language::cases() as $lang)
+        {
+            $name[$lang->value] = fake($lang->value)->company();
+            $description[$lang->value] = fake($lang->value)->realText(180);
+        }
+
         return [
-            'name' => fake()->company(),
-            'description' => fake()->text(),
+            'name' => $name,
+            'description' => $description,
             'date' => fake()->dateTimeBetween('-2 years', '+2 years')->format('Y-m-d'),
             'time' => fake()->time(),
             'price' =>fake()->randomFloat(2, 20, 200),
